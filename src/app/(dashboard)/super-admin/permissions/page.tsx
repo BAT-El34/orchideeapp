@@ -145,7 +145,7 @@ export default function PermissionsPage() {
               <div className="flex items-center gap-2">
                 <span className="text-sm font-semibold text-forest-800">{ROLE_LABELS[activeRole]}</span>
                 <span className="text-xs text-bark-400">
-                  — {[...perms.values()].filter(p => p.role === activeRole && p.enabled).length} permissions actives
+                  — {Array.from(perms.values()).filter(p => p.role === activeRole && p.enabled).length} permissions actives
                 </span>
               </div>
               <button onClick={() => resetRole(activeRole)} disabled={resetting}
