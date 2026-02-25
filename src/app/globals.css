@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Palette Orchidée Nature */
+    --color-forest:      #2C5219;
+    --color-forest-light:#4E8430;
+    --color-gold:        #C9881A;
+    --color-gold-light:  #E4A528;
+    --color-cream:       #FDF8EE;
+    --color-cream-dark:  #F3E2BA;
+    --color-bark:        #5E3A24;
+    --color-sage:        #6B8D44;
+
+    /* Sémantique UI */
+    --bg-app:         #FAF7F0;
+    --bg-sidebar:     #1E3B10;
+    --bg-card:        #FFFFFF;
+    --border:         #E8DDD3;
+    --border-strong:  #D0BAA6;
+    --text-primary:   #1E3B10;
+    --text-secondary: #5E3A24;
+    --text-muted:     #8B9E6F;
+    --accent-primary: #2C5219;
+    --accent-gold:    #C9881A;
+  }
+
+  * {
+    border-color: #E8DDD3;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+  }
+
+  /* Scrollbar botanique */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: #F2F7EE; }
+  ::-webkit-scrollbar-thumb { background: #98C07D; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #4E8430; }
+}
+
+@layer components {
+  /* Boutons */
+  .btn-primary {
+    @apply flex items-center justify-center gap-2 rounded-sm bg-forest-700 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-forest-800 disabled:opacity-60;
+  }
+  .btn-gold {
+    @apply flex items-center justify-center gap-2 rounded-sm bg-gold-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gold-600 disabled:opacity-60;
+  }
+  .btn-outline {
+    @apply flex items-center justify-center gap-2 rounded-sm border border-forest-200 bg-white px-4 py-2 text-sm font-medium text-forest-700 transition-colors hover:bg-forest-50 disabled:opacity-60;
+  }
+
+  /* Cards */
+  .card {
+    @apply rounded-sm border border-cream-400 bg-white shadow-botanical;
+  }
+
+  /* Inputs */
+  .input {
+    @apply h-9 w-full rounded-sm border border-cream-400 bg-white px-3 text-sm text-forest-900 transition-colors placeholder:text-bark-300 focus:border-forest-500 focus:outline-none focus:ring-1 focus:ring-forest-500;
+  }
+
+  /* Badge */
+  .badge-forest { @apply inline-flex items-center rounded-sm bg-forest-50 px-2 py-0.5 text-xs font-medium text-forest-700; }
+  .badge-gold   { @apply inline-flex items-center rounded-sm bg-gold-50 px-2 py-0.5 text-xs font-medium text-gold-700; }
+  .badge-sage   { @apply inline-flex items-center rounded-sm bg-sage-50 px-2 py-0.5 text-xs font-medium text-sage-700; }
+  .badge-red    { @apply inline-flex items-center rounded-sm bg-red-50 px-2 py-0.5 text-xs font-medium text-red-700; }
+
+  /* Table dense */
+  .table-header th {
+    @apply bg-forest-50 px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-forest-600;
+  }
+  .table-row {
+    @apply border-b border-cream-300 transition-colors hover:bg-cream-100;
+  }
+  .table-row td {
+    @apply px-3 py-2 text-sm text-bark-700;
+  }
+
+  /* Sidebar botanique */
+  .sidebar-nav-item {
+    @apply flex items-center gap-3 px-4 py-2 text-sm transition-all text-forest-200 hover:bg-forest-800 hover:text-white;
+  }
+  .sidebar-nav-item.active {
+    @apply bg-forest-800 text-gold-300 font-medium border-l-2 border-gold-400;
+  }
+
+  /* Séparateur décoratif */
+  .divider-botanical {
+    @apply relative flex items-center py-2;
+  }
+  .divider-botanical::before,
+  .divider-botanical::after {
+    content: '';
+    @apply flex-1 border-t border-cream-400;
+  }
+  .divider-botanical span {
+    @apply mx-2 text-xs text-sage-500;
+  }
+}
+
+@layer utilities {
+  .font-body    { font-family: var(--font-dm-sans), system-ui, sans-serif; }
+  .font-heading { font-family: var(--font-cormorant), Georgia, serif; }
+
+  .text-balance { text-wrap: balance; }
+
+  /* Effet bois/nature */
+  .bg-botanical { background-color: var(--bg-app); background-image: var(--tw-botanical-pattern, none); }
+
+  /* Toast styles */
+  .toast-success { @apply border-l-4 border-forest-500 bg-forest-50; }
+  .toast-error   { @apply border-l-4 border-red-500 bg-red-50; }
+  .toast-warning { @apply border-l-4 border-gold-500 bg-gold-50; }
+  .toast-info    { @apply border-l-4 border-sage-500 bg-sage-50; }
+}
+
+/* ─── Dark Mode ─────────────────────────────────────────── */
+.dark {
+  --bg-app:         #0F1A0A;
+  --bg-sidebar:     #0A1206;
+  --bg-card:        #162010;
+  --border:         #2A3D1E;
+  --border-strong:  #3A5028;
+  --text-primary:   #E8F0DC;
+  --text-secondary: #B8D49A;
+  --text-muted:     #6B8D50;
+  --accent-primary: #4E8430;
+  --accent-gold:    #E4A528;
+}
+
+.dark body {
+  background-color: #0F1A0A;
+  color: #E8F0DC;
+}
+
+.dark .card,
+.dark [class*="bg-white"] {
+  background-color: #162010 !important;
+  border-color: #2A3D1E !important;
+}
+
+.dark [class*="bg-cream"] {
+  background-color: #1A2912 !important;
+}
+
+.dark [class*="text-forest-900"],
+.dark [class*="text-forest-800"] {
+  color: #D4EAB8 !important;
+}
+
+.dark [class*="text-bark"] {
+  color: #8BA870 !important;
+}
+
+.dark [class*="border-cream"] {
+  border-color: #2A3D1E !important;
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #1A2912 !important;
+  border-color: #2A3D1E !important;
+  color: #D4EAB8 !important;
+}
+
+.dark .input {
+  background-color: #1A2912 !important;
+  color: #D4EAB8 !important;
+}
+
+.dark table thead tr,
+.dark [class*="bg-forest-50"] {
+  background-color: #1E2E14 !important;
+}
+
+.dark [class*="divide-cream"] > * {
+  border-color: #2A3D1E !important;
+}
+
+/* ─── Mobile bottom nav safe area ──────────────────────── */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .mobile-bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

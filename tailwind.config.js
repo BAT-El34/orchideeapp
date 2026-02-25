@@ -1,0 +1,103 @@
+/** @type {import('tailwindcss').Config} */
+const config = {
+  darkMode: ['class'],
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        body: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-cormorant)', 'Georgia', 'serif'],
+        script: ['var(--font-cormorant)', 'Georgia', 'serif'],
+      },
+      borderRadius: {
+        none: '0px',
+        sm: '3px',
+        DEFAULT: '3px',
+        md: '3px',
+        lg: '3px',
+        xl: '14px',
+        '2xl': '18px',
+        '3xl': '22px',
+        full: '9999px',
+      },
+      colors: {
+        // Palette principale Orchidée Nature
+        forest: {
+          50:  '#F2F7EE',
+          100: '#E0EDD6',
+          200: '#C2DBB0',
+          300: '#98C07D',
+          400: '#72A34F',
+          500: '#4E8430',
+          600: '#3A6822',
+          700: '#2C5219',
+          800: '#1E3B10',
+          900: '#12250A',
+        },
+        gold: {
+          50:  '#FDF8ED',
+          100: '#FAEDCA',
+          200: '#F4D98F',
+          300: '#EDBE50',
+          400: '#E4A528',
+          500: '#C9881A',
+          600: '#A86D13',
+          700: '#86530E',
+          800: '#623B09',
+          900: '#3E2505',
+        },
+        cream: {
+          50:  '#FFFDF9',
+          100: '#FDF8EE',
+          200: '#F9EFD8',
+          300: '#F3E2BA',
+          400: '#EAD09A',
+          500: '#DFBA78',
+        },
+        bark: {
+          50:  '#F5F0EB',
+          100: '#E8DDD3',
+          200: '#D0BAA6',
+          300: '#B69279',
+          400: '#9B6E51',
+          500: '#7D5138',
+          600: '#5E3A24',
+          700: '#432817',
+          800: '#2A180D',
+          900: '#150C06',
+        },
+        sage: {
+          50:  '#F4F7F1',
+          100: '#E4EDD9',
+          200: '#C8DAB3',
+          300: '#A7C285',
+          400: '#87A85F',
+          500: '#6B8D44',
+          600: '#527032',
+          700: '#3D5425',
+          800: '#293919',
+          900: '#16200E',
+        },
+      },
+      boxShadow: {
+        'botanical': '0 1px 3px 0 rgb(44 82 25 / 0.08), 0 1px 2px -1px rgb(44 82 25 / 0.06)',
+        'botanical-md': '0 4px 12px -2px rgb(44 82 25 / 0.10), 0 2px 6px -2px rgb(44 82 25 / 0.06)',
+        'gold': '0 2px 8px -1px rgb(201 136 26 / 0.25)',
+        sm: '0 1px 2px 0 rgb(0 0 0 / 0.04)',
+        DEFAULT: '0 1px 3px 0 rgb(0 0 0 / 0.06)',
+        md: '0 4px 8px -2px rgb(0 0 0 / 0.08)',
+        none: 'none',
+      },
+      backgroundImage: {
+        'botanical-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234E8430' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+      },
+    },
+  },
+  plugins: [require('tailwindcss-animate')],
+}
+
+module.exports = config
